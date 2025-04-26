@@ -1,33 +1,416 @@
-<!doctype html>
-<html class="no-js" lang="">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="">
-
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
-
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#fafafa">
+  <link rel="stylesheet" href="./css/styles.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
-
 <body>
+<main id="main-doc">
+  <section class="main-section" id="Describing_the_UI">
+    <header>
+      <h1>Describing the UI</h1>
+    </header>
+    <p>React is a JavaScript library for rendering user interfaces (UI). UI is built from small units like buttons, text, and images. React lets you combine them into reusable, nestable components. From web sites to phone apps, everything on the screen can be broken down into components. In this chapter, you’ll learn to create, customize, and conditionally display React components.</p>
+  </section>
 
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
-  <script src="js/app.js"></script>
+  <section class="main-section" id="Your_First_Component">
+    <header>
+      <h2>Your first component</h2>
+    </header>
+    <p>React applications are built from isolated pieces of UI called components. A React component is a JavaScript function that you can sprinkle with markup. Components can be as small as a button, or as large as an entire page. Here is a Gallery component rendering three Profile components:</p>
+    <pre>
+    <code>
+      function Profile() {
+        return (
+          &lt;img
+            src="https://i.imgur.com/MK3eW3As.jpg"
+            alt="Katherine Johnson"
+          />
+          );
+          }
 
+          export default function Gallery() {
+          return (
+          &lt;section>
+            &lt;h1>Amazing scientists&lt;/h1>
+            &lt;Profile />
+            &lt;Profile />
+            &lt;Profile />
+          &lt;/section>
+        );
+      }
+    </code>
+    </pre>
+  </section>
+
+  <section class="main-section" id="Importing_and_Exporting_Components">
+    <header>
+      <h2>Importing and exporting components</h2>
+    </header>
+    <p>You can declare many components in one file, but large files can get difficult to navigate. To solve this, you can export a component into its own file, and then import that component from another file:</p>
+  <pre>
+    <code>
+      import Profile from './Profile.js';
+
+export default function Gallery() {
+  return (
+    &lt;section>
+      &lt;h1>Amazing scientists&lt;/h1>
+      &lt;Profile />
+      &lt;Profile />
+      &lt;Profile />
+    &lt;/section>
+  );
+}
+    </code>
+  </pre>
+  </section>
+
+  <section class="main-section" id="Writing_markup_with_JSX">
+    <header>
+      <h2>Writing markup with JSX</h2>
+    </header>
+    <p>Each React component is a JavaScript function that may contain some markup that React renders into the browser. React components use a syntax extension called JSX to represent that markup. JSX looks a lot like HTML, but it is a bit stricter and can display dynamic information.</p>
+    <p>If we paste existing HTML markup into a React component, it won’t always work:</p>
+    <pre>
+      <code>
+        export default function TodoList() {
+          return (
+            // This doesn't quite work!
+            &lt;h1>Hedy Lamarr's Todos&lt;/h1>
+            &lt;img
+              src="https://i.imgur.com/yXOvdOSs.jpg"
+              alt="Hedy Lamarr"
+              class="photo"
+            >
+            &lt;ul>
+              &lt;li>Invent new traffic lights
+              &lt;li>Rehearse a movie scene
+              &lt;li>Improve spectrum technology
+            &lt;/ul>
+          );
+        }
+      </code>
+    </pre>
+    <p>If you have existing HTML like this, you can fix it using a converter:</p>
+    <pre>
+      <code>
+        export default function TodoList() {
+          return (
+            <>
+            &lt;h1>Hedy Lamarr's Todos&lt;/h1>
+            &lt;img
+              src="https://i.imgur.com/yXOvdOSs.jpg"
+              alt="Hedy Lamarr"
+              className="photo"
+            />
+            &lt;ul>
+              &lt;li>Invent new traffic lights&lt;/li>
+              &lt;li>Rehearse a movie scene&lt;/li>
+              &lt;li>Improve spectrum technology&lt;/li>
+            &lt;/ul>
+          &lt;/>
+          );
+        }
+      </code>
+    </pre>
+  </section>
+
+  <section class="main-section" id="JavaScript_in_JSX_with_curly_braces">
+    <header>
+      <h2>JavaScript in JSX with curly braces</h2>
+    </header>
+    <p>JSX lets you write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place. Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside that markup. In this situation, you can use curly braces in your JSX to “open a window” to JavaScript:</p>
+    <pre>
+      <code>
+        const person = {
+          name: 'Gregorio Y. Zara',
+          theme: {
+            backgroundColor: 'black',
+            color: 'pink'
+          }
+        };
+
+        export default function TodoList() {
+          return (
+            &lt;div style={person.theme}>
+              &lt;h1>{person.name}'s Todos&lt;/h1>
+              &lt;img
+                className="avatar"
+                src="https://i.imgur.com/7vQD0fPs.jpg"
+                alt="Gregorio Y. Zara"
+              />
+              &lt;ul>
+                &lt;li>Improve the videophone&lt;/li>
+                &lt;li>Prepare aeronautics lectures&lt;/li>
+                &lt;li>Work on the alcohol-fuelled engine&lt;/li>
+              &lt;/ul>
+            &lt;/div>
+          );
+        }
+
+      </code>
+    </pre>
+  </section>
+
+  <section class="main-section" id="Passing_Props_to_a_Component">
+    <header>
+      <h2>Passing props to a component</h2>
+    </header>
+    <p>React components use props to communicate with each other. Every parent component can pass some information to its child components by giving them props. Props might remind you of HTML attributes, but you can pass any JavaScript value through them, including objects, arrays, functions, and even JSX!</p>
+    <pre>
+      <code>
+        import { getImageUrl } from './utils.js'
+
+        export default function Profile() {
+          return (
+            &lt;Card>
+              &lt;Avatar
+                size={100}
+                person={{
+                name: 'Katsuko Saruhashi',
+                  imageId: 'YfeOqp2'
+                }}
+              />
+            &lt;/Card>
+          );
+        }
+
+        function Avatar({ person, size }) {
+          return (
+            &lt;img
+              className="avatar"
+              src={getImageUrl(person)}
+              alt={person.name}
+              width={size}
+              height={size}
+            />
+          );
+        }
+
+        function Card({ children }) {
+          return (
+            &lt;div className="card">
+              {children}
+            &lt;/div>
+          );
+        }
+      </code>
+      <code>
+        export function getImageUrl(person, size = 's') {
+          return (
+            'https://i.imgur.com/' +
+            person.imageId +
+            size +
+            '.jpg'
+          );
+        }
+      </code>
+    </pre>
+  </section>
+
+  <section class="main-section" id="Conditional_Rendering">
+    <header>
+      <h2>Conditional rendering</h2>
+    </header>
+    <p>Your components will often need to display different things depending on different conditions. In React, you can conditionally render JSX using JavaScript syntax like <code>if</code> statements, <code>&&</code>, and <code>? :</code> operators.</p>
+    <p>In this example, the JavaScript <code>&&</code> operator is used to conditionally render a checkmark:</p>
+    <pre>
+      <code>
+        function Item({ name, isPacked }) {
+          return (
+            &lt;li className="item">
+              {name} {isPacked && '✅'}
+            &lt;/li>
+          );
+        }
+
+        export default function PackingList() {
+          return (
+            &lt;section>
+              &lt;h1>Sally Ride's Packing List&lt;/h1>
+              &lt;ul>
+                &lt;Item
+                  isPacked={true}
+                  name="Space suit"
+                />
+                &lt;Item
+                  isPacked={true}
+                  name="Helmet with a golden leaf"
+                />
+                &lt;Item
+                  isPacked={false}
+                  name="Photo of Tam"
+                />
+              &lt;/ul>
+            &lt;/section>
+          );
+        }
+      </code>
+    </pre>
+  </section>
+
+  <section class="main-section" id="Rendering_Lists">
+    <header>
+      <h2>Rendering lists</h2>
+    </header>
+    <p>You will often want to display multiple similar components from a collection of data. You can use JavaScript’s <code>filter()</code> and <code>map()</code> with React to filter and transform your array of data into an array of components.</p>
+    <p>For each array item, you will need to specify a <code>key</code>. Usually, you will want to use an ID from the database as a <code>key</code>. Keys let React keep track of each item’s place in the list even if the list changes.</p>
+    <pre>
+      <code>
+        import { people } from './data.js';
+        import { getImageUrl } from './utils.js';
+
+        export default function List() {
+          const listItems = people.map(person =>
+            &lt;li key={person.id}>
+              &lt;img
+                src={getImageUrl(person)}
+                alt={person.name}
+              />
+              &lt;p>
+                &lt;b>{person.name}:&lt;/b>
+                {' ' + person.profession + ' '}
+                known for {person.accomplishment}
+              &lt;/p>
+            &lt;/li>
+          );
+          return (
+            &lt;article>
+              &lt;h1>Scientists&lt;/h1>
+              &lt;ul>{listItems}&lt;/ul>
+            &lt;/article>
+          );
+        }
+      </code>
+      <code>
+        export const people = [{
+        id: 0,
+        name: 'Creola Katherine Johnson',
+        profession: 'mathematician',
+        accomplishment: 'spaceflight calculations',
+        imageId: 'MK3eW3A'
+      }, {
+        id: 1,
+        name: 'Mario José Molina-Pasquel Henríquez',
+        profession: 'chemist',
+        accomplishment: 'discovery of Arctic ozone hole',
+        imageId: 'mynHUSa'
+      }, {
+        id: 2,
+        name: 'Mohammad Abdus Salam',
+        profession: 'physicist',
+        accomplishment: 'electromagnetism theory',
+        imageId: 'bE7W1ji'
+      }, {
+        id: 3,
+        name: 'Percy Lavon Julian',
+        profession: 'chemist',
+        accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
+        imageId: 'IOjWm71'
+      }, {
+        id: 4,
+        name: 'Subrahmanyan Chandrasekhar',
+        profession: 'astrophysicist',
+        accomplishment: 'white dwarf star mass calculations',
+        imageId: 'lrWQx8l'
+      }];
+      </code>
+      <code>
+        export function getImageUrl(person) {
+        return (
+          'https://i.imgur.com/' +
+          person.imageId +
+          's.jpg'
+        );
+      }
+      </code>
+    </pre>
+  </section>
+
+  <section class="main-section" id="Keeping_Components_Pure">
+    <header>
+      <h2>Keeping components pure</h2>
+    </header>
+    <p>Some JavaScript functions are pure. A pure function:</p>
+    <p>
+      <ul>
+        <li>Minds its own business. It does not change any objects or variables that existed before it was called.</li>
+        <li>Same inputs, same output. Given the same inputs, a pure function should always return the same result.</li>
+      </ul>
+    </p>
+    <p>By strictly only writing your components as pure functions, you can avoid an entire class of baffling bugs and unpredictable behavior as your codebase grows. Here is an example of an impure component:</p>
+    <pre>
+      <code>
+        let guest = 0;
+
+        function Cup() {
+          // Bad: changing a preexisting variable!
+          guest = guest + 1;
+          return &lt;h2>Tea cup for guest #{guest}&lt;/h2>;
+        }
+
+        export default function TeaSet() {
+          return (
+            <>
+              &lt;Cup />
+              &lt;Cup />
+              &lt;Cup />
+            &lt;/>
+          );
+      </code>
+    </pre>
+    <p>You can make this component pure by passing a prop instead of modifying a preexisting variable:</p>
+    <pre>
+      <code>
+        function Cup({ guest }) {
+        return &lt;h2>Tea cup for guest #{guest}&lt;/h2>;
+      }
+
+      export default function TeaSet() {
+        return (
+          <>
+            &lt;Cup guest={1} />
+            &lt;Cup guest={2} />
+            &lt;Cup guest={3} />
+          &lt;/>
+        );
+      }
+      </code>
+    </pre>
+  </section>
+
+  <section class="main-section" id="Your_UI_as_a_Tree">
+    <header>
+      <h2>Your UI as a tree</h2>
+    </header>
+    <p>React uses trees to model the relationships between components and modules.</p>
+    <p>A React render tree is a representation of the parent and child relationship between components.</p>
+    <img src="./Data/Photos/generic_render_tree.webp" alt="An example module dependency tree.">
+    <p>Components near the top of the tree, near the root component, are considered top-level components. Components with no child components are leaf components. This categorization of components is useful for understanding data flow and rendering performance.</p>
+    <p>Modelling the relationship between JavaScript modules is another useful way to understand your app. We refer to it as a module dependency tree.</p>
+    <img src="./Data/Photos/generic_dependency_tree.webp" alt="An example module dependency tree.">
+    <p>A dependency tree is often used by build tools to bundle all the relevant JavaScript code for the client to download and render. A large bundle size regresses user experience for React apps. Understanding the module dependency tree is helpful to debug such issues.</p>
+  </section>
+
+  <section class="main-section" id="Whats_Next">
+    <header>
+      <h2>What’s next?</h2>
+    </header>
+    <p>Head over to <a href="https://react.dev/learn/your-first-component">Your First Component </a> to start reading this chapter page by page!</p>
+    <p>Or, if you’re already familiar with these topics, why not read about Adding Interactivity?</p>
+  </section>
+
+  <section class="main-section" id="">
+    <header>
+      <h2></h2>
+    </header>
+  </section>
+</main>
+<nav id="navbar">
+  <header></header>
+  <a class="nav-link"></a>
+</nav>
 </body>
-
 </html>
