@@ -6,34 +6,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
-<nav id="navbar">
-  <header class="nav-header"> ON THIS PAGE</header>
-  <a class="nav-link" href="#Describing_the_UI">Describing the UI</a>
-  <a class="nav-link" href="#Your_first_component">Your first component</a>
-  <a class="nav-link" href="#Importing_and_exporting_components">Importing and exporting components</a>
-  <a class="nav-link" href="#Writing_markup_with_JSX">Writing markup with JSX</a>
-  <a class="nav-link" href="#JavaScript_in_JSX_with_curly_braces">JavaScript in JSX with curly braces</a>
-  <a class="nav-link" href="#Passing_props_to_a_component">Passing props to a component</a>
-  <a class="nav-link" href="#Conditional_rendering">Conditional rendering</a>
-  <a class="nav-link" href="#Rendering_lists">Rendering lists</a>
-  <a class="nav-link" href="#Keeping_components_pure">Keeping components pure</a>
-  <a class="nav-link" href="#Your_UI_as_a_tree">Your UI as a tree</a>
-  <a class="nav-link" href="#What’s_next?">What’s next?</a>
-</nav>
-<main id="main-doc">
-  <section class="main-section" id="Describing_the_UI">
-    <header class="main-header">
-      <h1>Describing the UI</h1>
-    </header>
-    <p>React is a JavaScript library for rendering user interfaces (UI). UI is built from small units like buttons, text, and images. React lets you combine them into reusable, nestable components. From web sites to phone apps, everything on the screen can be broken down into components. In this chapter, you’ll learn to create, customize, and conditionally display React components.</p>
-  </section>
+<div class="outer-nav-container navbar-color">
+  <nav id="navbar">
+    <header class="nav-header"> ON THIS PAGE</header>
+    <a class="nav-link" href="#Describing_the_UI">Describing the UI</a>
+    <a class="nav-link" href="#Your_first_component">Your first component</a>
+    <a class="nav-link" href="#Importing_and_exporting_components">Importing and exporting components</a>
+    <a class="nav-link" href="#Writing_markup_with_JSX">Writing markup with JSX</a>
+    <a class="nav-link" href="#JavaScript_in_JSX_with_curly_braces">JavaScript in JSX with curly braces</a>
+    <a class="nav-link" href="#Passing_props_to_a_component">Passing props to a component</a>
+    <a class="nav-link" href="#Conditional_rendering">Conditional rendering</a>
+    <a class="nav-link" href="#Rendering_lists">Rendering lists</a>
+    <a class="nav-link" href="#Keeping_components_pure">Keeping components pure</a>
+    <a class="nav-link" href="#Your_UI_as_a_tree">Your UI as a tree</a>
+    <a class="nav-link" href="#What’s_next?">What’s next?</a>
+  </nav>
+</div>
 
-  <section class="main-section" id="Your_first_component">
-    <header>
-      <h2>Your first component</h2>
-    </header>
-    <p>React applications are built from isolated pieces of UI called components. A React component is a JavaScript function that you can sprinkle with markup. Components can be as small as a button, or as large as an entire page. Here is a Gallery component rendering three Profile components:</p>
-    <pre>
+<dvi class="outer-main-container main-background-color">
+  <div class="main-container">
+    <main id="main-doc">
+      <section class="main-section" id="Describing_the_UI">
+        <header class="main-header">
+          <h1>Describing the UI</h1>
+        </header>
+        <p class="description-paragraph">React is a JavaScript library for rendering user interfaces (UI). UI is built from small units like buttons, text, and images. React lets you combine them into reusable, nestable components. From web sites to phone apps, everything on the screen can be broken down into components. In this chapter, you’ll learn to create, customize, and conditionally display React components.</p>
+      </section>
+
+      <section class="main-section" id="Your_first_component">
+        <header>
+          <h2>Your first component</h2>
+        </header>
+        <p>React applications are built from isolated pieces of UI called components. A React component is a JavaScript function that you can sprinkle with markup. Components can be as small as a button, or as large as an entire page. Here is a Gallery component rendering three Profile components:</p>
+        <pre>
     <code>
       function Profile() {
         return (
@@ -56,14 +61,14 @@
       }
     </code>
     </pre>
-  </section>
+      </section>
 
-  <section class="main-section" id="Importing_and_exporting_components">
-    <header>
-      <h2>Importing and exporting components</h2>
-    </header>
-    <p>You can declare many components in one file, but large files can get difficult to navigate. To solve this, you can export a component into its own file, and then import that component from another file:</p>
-    <pre>
+      <section class="main-section" id="Importing_and_exporting_components">
+        <header>
+          <h2>Importing and exporting components</h2>
+        </header>
+        <p>You can declare many components in one file, but large files can get difficult to navigate. To solve this, you can export a component into its own file, and then import that component from another file:</p>
+        <pre>
     <code>
       import Profile from './Profile.js';
 
@@ -79,15 +84,15 @@ export default function Gallery() {
 }
     </code>
   </pre>
-  </section>
+      </section>
 
-  <section class="main-section" id="Writing_markup_with_JSX">
-    <header>
-      <h2>Writing markup with JSX</h2>
-    </header>
-    <p>Each React component is a JavaScript function that may contain some markup that React renders into the browser. React components use a syntax extension called JSX to represent that markup. JSX looks a lot like HTML, but it is a bit stricter and can display dynamic information.</p>
-    <p>If we paste existing HTML markup into a React component, it won’t always work:</p>
-    <pre>
+      <section class="main-section" id="Writing_markup_with_JSX">
+        <header>
+          <h2>Writing markup with JSX</h2>
+        </header>
+        <p>Each React component is a JavaScript function that may contain some markup that React renders into the browser. React components use a syntax extension called JSX to represent that markup. JSX looks a lot like HTML, but it is a bit stricter and can display dynamic information.</p>
+        <p>If we paste existing HTML markup into a React component, it won’t always work:</p>
+        <pre>
       <code>
         export default function TodoList() {
           return (
@@ -107,8 +112,8 @@ export default function Gallery() {
         }
       </code>
     </pre>
-    <p>If you have existing HTML like this, you can fix it using a converter:</p>
-    <pre>
+        <p>If you have existing HTML like this, you can fix it using a converter:</p>
+        <pre>
       <code>
         export default function TodoList() {
           return (
@@ -129,14 +134,14 @@ export default function Gallery() {
         }
       </code>
     </pre>
-  </section>
+      </section>
 
-  <section class="main-section" id="JavaScript_in_JSX_with_curly_braces">
-    <header>
-      <h2>JavaScript in JSX with curly braces</h2>
-    </header>
-    <p>JSX lets you write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place. Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside that markup. In this situation, you can use curly braces in your JSX to “open a window” to JavaScript:</p>
-    <pre>
+      <section class="main-section" id="JavaScript_in_JSX_with_curly_braces">
+        <header>
+          <h2>JavaScript in JSX with curly braces</h2>
+        </header>
+        <p>JSX lets you write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place. Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside that markup. In this situation, you can use curly braces in your JSX to “open a window” to JavaScript:</p>
+        <pre>
       <code>
         const person = {
           name: 'Gregorio Y. Zara',
@@ -166,14 +171,14 @@ export default function Gallery() {
 
       </code>
     </pre>
-  </section>
+      </section>
 
-  <section class="main-section" id="Passing_props_to_a_component">
-    <header>
-      <h2>Passing props to a component</h2>
-    </header>
-    <p>React components use props to communicate with each other. Every parent component can pass some information to its child components by giving them props. Props might remind you of HTML attributes, but you can pass any JavaScript value through them, including objects, arrays, functions, and even JSX!</p>
-    <pre>
+      <section class="main-section" id="Passing_props_to_a_component">
+        <header>
+          <h2>Passing props to a component</h2>
+        </header>
+        <p>React components use props to communicate with each other. Every parent component can pass some information to its child components by giving them props. Props might remind you of HTML attributes, but you can pass any JavaScript value through them, including objects, arrays, functions, and even JSX!</p>
+        <pre>
       <code>
         import { getImageUrl } from './utils.js'
 
@@ -222,15 +227,15 @@ export default function Gallery() {
         }
       </code>
     </pre>
-  </section>
+      </section>
 
-  <section class="main-section" id="Conditional_rendering">
-    <header>
-      <h2>Conditional rendering</h2>
-    </header>
-    <p>Your components will often need to display different things depending on different conditions. In React, you can conditionally render JSX using JavaScript syntax like <code>if</code> statements, <code>&&</code>, and <code>? :</code> operators.</p>
-    <p>In this example, the JavaScript <code>&&</code> operator is used to conditionally render a checkmark:</p>
-    <pre>
+      <section class="main-section" id="Conditional_rendering">
+        <header>
+          <h2>Conditional rendering</h2>
+        </header>
+        <p>Your components will often need to display different things depending on different conditions. In React, you can conditionally render JSX using JavaScript syntax like <code>if</code> statements, <code>&&</code>, and <code>? :</code> operators.</p>
+        <p>In this example, the JavaScript <code>&&</code> operator is used to conditionally render a checkmark:</p>
+        <pre>
       <code>
         function Item({ name, isPacked }) {
           return (
@@ -263,15 +268,15 @@ export default function Gallery() {
         }
       </code>
     </pre>
-  </section>
+      </section>
 
-  <section class="main-section" id="Rendering_lists">
-    <header>
-      <h2>Rendering lists</h2>
-    </header>
-    <p>You will often want to display multiple similar components from a collection of data. You can use JavaScript’s <code>filter()</code> and <code>map()</code> with React to filter and transform your array of data into an array of components.</p>
-    <p>For each array item, you will need to specify a <code>key</code>. Usually, you will want to use an ID from the database as a <code>key</code>. Keys let React keep track of each item’s place in the list even if the list changes.</p>
-    <pre>
+      <section class="main-section" id="Rendering_lists">
+        <header>
+          <h2>Rendering lists</h2>
+        </header>
+        <p>You will often want to display multiple similar components from a collection of data. You can use JavaScript’s <code>filter()</code> and <code>map()</code> with React to filter and transform your array of data into an array of components.</p>
+        <p>For each array item, you will need to specify a <code>key</code>. Usually, you will want to use an ID from the database as a <code>key</code>. Keys let React keep track of each item’s place in the list even if the list changes.</p>
+        <pre>
       <code>
         import { people } from './data.js';
         import { getImageUrl } from './utils.js';
@@ -341,21 +346,21 @@ export default function Gallery() {
       }
       </code>
     </pre>
-  </section>
+      </section>
 
-  <section class="main-section" id="Keeping_components_pure">
-    <header>
-      <h2>Keeping components pure</h2>
-    </header>
-    <p>Some JavaScript functions are pure. A pure function:</p>
-    <p>
-    <ul>
-      <li>Minds its own business. It does not change any objects or variables that existed before it was called.</li>
-      <li>Same inputs, same output. Given the same inputs, a pure function should always return the same result.</li>
-    </ul>
-    </p>
-    <p>By strictly only writing your components as pure functions, you can avoid an entire class of baffling bugs and unpredictable behavior as your codebase grows. Here is an example of an impure component:</p>
-    <pre>
+      <section class="main-section" id="Keeping_components_pure">
+        <header>
+          <h2>Keeping components pure</h2>
+        </header>
+        <p>Some JavaScript functions are pure. A pure function:</p>
+        <p>
+        <ul>
+          <li>Minds its own business. It does not change any objects or variables that existed before it was called.</li>
+          <li>Same inputs, same output. Given the same inputs, a pure function should always return the same result.</li>
+        </ul>
+        </p>
+        <p>By strictly only writing your components as pure functions, you can avoid an entire class of baffling bugs and unpredictable behavior as your codebase grows. Here is an example of an impure component:</p>
+        <pre>
       <code>
         let guest = 0;
 
@@ -375,8 +380,8 @@ export default function Gallery() {
           );
       </code>
     </pre>
-    <p>You can make this component pure by passing a prop instead of modifying a preexisting variable:</p>
-    <pre>
+        <p>You can make this component pure by passing a prop instead of modifying a preexisting variable:</p>
+        <pre>
       <code>
         function Cup({ guest }) {
         return &lt;h2>Tea cup for guest #{guest}&lt;/h2>;
@@ -393,30 +398,33 @@ export default function Gallery() {
       }
       </code>
     </pre>
-  </section>
+      </section>
 
-  <section class="main-section" id="Your_UI_as_a_tree">
-    <header>
-      <h2>Your UI as a tree</h2>
-    </header>
-    <p>React uses trees to model the relationships between components and modules.</p>
-    <p>A React render tree is a representation of the parent and child relationship between components.</p>
-    <img src="./Data/Photos/generic_render_tree.webp" alt="An example module dependency tree.">
-    <p>Components near the top of the tree, near the root component, are considered top-level components. Components with no child components are leaf components. This categorization of components is useful for understanding data flow and rendering performance.</p>
-    <p>Modelling the relationship between JavaScript modules is another useful way to understand your app. We refer to it as a module dependency tree.</p>
-    <img src="./Data/Photos/generic_dependency_tree.webp" alt="An example module dependency tree.">
-    <p>A dependency tree is often used by build tools to bundle all the relevant JavaScript code for the client to download and render. A large bundle size regresses user experience for React apps. Understanding the module dependency tree is helpful to debug such issues.</p>
-  </section>
+      <section class="main-section" id="Your_UI_as_a_tree">
+        <header>
+          <h2>Your UI as a tree</h2>
+        </header>
+        <p>React uses trees to model the relationships between components and modules.</p>
+        <p>A React render tree is a representation of the parent and child relationship between components.</p>
+        <img src="./Data/Photos/generic_render_tree.webp" alt="An example module dependency tree.">
+        <p>Components near the top of the tree, near the root component, are considered top-level components. Components with no child components are leaf components. This categorization of components is useful for understanding data flow and rendering performance.</p>
+        <p>Modelling the relationship between JavaScript modules is another useful way to understand your app. We refer to it as a module dependency tree.</p>
+        <img src="./Data/Photos/generic_dependency_tree.webp" alt="An example module dependency tree.">
+        <p>A dependency tree is often used by build tools to bundle all the relevant JavaScript code for the client to download and render. A large bundle size regresses user experience for React apps. Understanding the module dependency tree is helpful to debug such issues.</p>
+      </section>
 
-  <section class="main-section" id="What’s_next?">
-    <header>
-      <h2>What’s next?</h2>
-    </header>
-    <p>Head over to <a href="https://react.dev/learn/your-first-component">Your First Component </a> to start reading this chapter page by page!</p>
-    <p>Or, if you’re already familiar with these topics, why not read about Adding Interactivity?</p>
-  </section>
+      <section class="main-section" id="What’s_next?">
+        <header>
+          <h2>What’s next?</h2>
+        </header>
+        <p>Head over to <a href="https://react.dev/learn/your-first-component">Your First Component </a> to start reading this chapter page by page!</p>
+        <p>Or, if you’re already familiar with these topics, why not read about Adding Interactivity?</p>
+      </section>
 
 
-</main>
+    </main>
+  </div>
+</dvi>
+
 </body>
 </html>
