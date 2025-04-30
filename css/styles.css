@@ -15,6 +15,7 @@ body {
 .main-container {
   width: 100%;
   min-height: 100vh;
+  min-width: 0;
 }
 
 .outer-nav-container {
@@ -34,10 +35,11 @@ body {
   width: 300px;
   height: 100%;
   box-sizing: border-box;
-  position: fixed;
+  /*position: fixed;*/
   left: 0;
   margin-top: 40px;
   margin-left: 25px;
+  flex-shrink: 0;
 }
 
 #navbar a {
@@ -94,4 +96,24 @@ header.main-header {
 
 .navbar-color {
   background-color: #24282a;
+}
+
+.fit-text-width {
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  margin: 20px auto;
+}
+
+@media (max-width: 1285px) {
+  #navbar {
+    width: 100px;
+    height: 100%;
+    box-sizing: border-box;
+    /*position: fixed;*/
+    left: 0;
+    margin-top: 40px;
+    margin-left: 25px;
+  }
 }

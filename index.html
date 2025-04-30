@@ -23,7 +23,7 @@
   </nav>
 </div>
 
-<dvi class="outer-main-container main-background-color">
+<div class="outer-main-container main-background-color">
   <div class="main-container">
     <main id="main-doc">
       <section class="main-section" id="Describing_the_UI">
@@ -406,10 +406,10 @@ export default function Gallery() {
         </header>
         <p>React uses trees to model the relationships between components and modules.</p>
         <p>A React render tree is a representation of the parent and child relationship between components.</p>
-        <img src="./Data/Photos/generic_render_tree.webp" alt="An example module dependency tree.">
+        <img class="fit-text-width" src="./Data/Photos/generic_render_tree.webp" alt="An example module dependency tree.">
         <p>Components near the top of the tree, near the root component, are considered top-level components. Components with no child components are leaf components. This categorization of components is useful for understanding data flow and rendering performance.</p>
         <p>Modelling the relationship between JavaScript modules is another useful way to understand your app. We refer to it as a module dependency tree.</p>
-        <img src="./Data/Photos/generic_dependency_tree.webp" alt="An example module dependency tree.">
+        <img class="fit-text-width" src="./Data/Photos/generic_dependency_tree.webp" alt="An example module dependency tree.">
         <p>A dependency tree is often used by build tools to bundle all the relevant JavaScript code for the client to download and render. A large bundle size regresses user experience for React apps. Understanding the module dependency tree is helpful to debug such issues.</p>
       </section>
 
@@ -424,7 +424,7 @@ export default function Gallery() {
 
     </main>
   </div>
-</dvi>
+</div>
 
 </body>
 </html>
