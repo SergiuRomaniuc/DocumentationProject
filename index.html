@@ -7,20 +7,22 @@
 </head>
 <body>
 <div class="outer-nav-container navbar-color">
-  <nav id="navbar">
-    <header class="nav-header"> ON THIS PAGE</header>
-    <a class="nav-link" href="#Describing_the_UI">Describing the UI</a>
-    <a class="nav-link" href="#Your_first_component">Your first component</a>
-    <a class="nav-link" href="#Importing_and_exporting_components">Importing and exporting components</a>
-    <a class="nav-link" href="#Writing_markup_with_JSX">Writing markup with JSX</a>
-    <a class="nav-link" href="#JavaScript_in_JSX_with_curly_braces">JavaScript in JSX with curly braces</a>
-    <a class="nav-link" href="#Passing_props_to_a_component">Passing props to a component</a>
-    <a class="nav-link" href="#Conditional_rendering">Conditional rendering</a>
-    <a class="nav-link" href="#Rendering_lists">Rendering lists</a>
-    <a class="nav-link" href="#Keeping_components_pure">Keeping components pure</a>
-    <a class="nav-link" href="#Your_UI_as_a_tree">Your UI as a tree</a>
-    <a class="nav-link" href="#What’s_next?">What’s next?</a>
-  </nav>
+  <div class="inner-nav-container">
+    <nav id="navbar">
+      <header class="nav-header"> ON THIS PAGE</header>
+      <a class="nav-link" href="#Describing_the_UI">Describing the UI</a>
+      <a class="nav-link" href="#Your_first_component">Your first component</a>
+      <a class="nav-link" href="#Importing_and_exporting_components">Importing and exporting components</a>
+      <a class="nav-link" href="#Writing_markup_with_JSX">Writing markup with JSX</a>
+      <a class="nav-link" href="#JavaScript_in_JSX_with_curly_braces">JavaScript in JSX with curly braces</a>
+      <a class="nav-link" href="#Passing_props_to_a_component">Passing props to a component</a>
+      <a class="nav-link" href="#Conditional_rendering">Conditional rendering</a>
+      <a class="nav-link" href="#Rendering_lists">Rendering lists</a>
+      <a class="nav-link" href="#Keeping_components_pure">Keeping components pure</a>
+      <a class="nav-link" href="#Your_UI_as_a_tree">Your UI as a tree</a>
+      <a class="nav-link" href="#What’s_next?">What’s next?</a>
+    </nav>
+  </div>
 </div>
 
 <div class="outer-main-container main-background-color">
@@ -38,29 +40,34 @@
           <h2>Your first component</h2>
         </header>
         <p>React applications are built from isolated pieces of UI called components. A React component is a JavaScript function that you can sprinkle with markup. Components can be as small as a button, or as large as an entire page. Here is a Gallery component rendering three Profile components:</p>
-        <pre>
-    <code>
-      function Profile() {
-        return (
-          &lt;img
-            src="https://i.imgur.com/MK3eW3As.jpg"
-            alt="Katherine Johnson"
-          />
-          );
-          }
+        <div class="fit-text-width">
+          <button type="button" title="Copy to Clipboard" class="button-clip-board" data-copy=".sc-1-cd-1" aria-label="Copy to Clipboard">
+            <ion-icon name="copy-outline"></ion-icon>
+          </button>
+          <pre class="sc-1-cd-1">
+            <code>
+function Profile() {
+  return (
+    &lt;img
+      src="https://i.imgur.com/MK3eW3As.jpg"
+      alt="Katherine Johnson"
+    />
+    );
+    }
 
-          export default function Gallery() {
-          return (
-          &lt;section>
-            &lt;h1>Amazing scientists&lt;/h1>
-            &lt;Profile />
-            &lt;Profile />
-            &lt;Profile />
-          &lt;/section>
-        );
-      }
-    </code>
-    </pre>
+    export default function Gallery() {
+    return (
+    &lt;section>
+      &lt;h1>Amazing scientists&lt;/h1>
+      &lt;Profile />
+      &lt;Profile />
+      &lt;Profile />
+    &lt;/section>
+  );
+}
+            </code>
+          </pre>
+        </div>
       </section>
 
       <section class="main-section" id="Importing_and_exporting_components">
@@ -68,9 +75,13 @@
           <h2>Importing and exporting components</h2>
         </header>
         <p>You can declare many components in one file, but large files can get difficult to navigate. To solve this, you can export a component into its own file, and then import that component from another file:</p>
-        <pre>
-    <code>
-      import Profile from './Profile.js';
+        <div class="fit-text-width">
+          <button type="button" title="Copy to Clipboard" class="button-clip-board" data-copy=".sc-2-cd-1" aria-label="Copy to Clipboard">
+            <ion-icon name="copy-outline"></ion-icon>
+          </button>
+          <pre class="sc-2-cd-1">
+            <code>
+import Profile from './Profile.js';
 
 export default function Gallery() {
   return (
@@ -82,8 +93,9 @@ export default function Gallery() {
     &lt;/section>
   );
 }
-    </code>
-  </pre>
+            </code>
+        </pre>
+        </div>
       </section>
 
       <section class="main-section" id="Writing_markup_with_JSX">
@@ -92,48 +104,58 @@ export default function Gallery() {
         </header>
         <p>Each React component is a JavaScript function that may contain some markup that React renders into the browser. React components use a syntax extension called JSX to represent that markup. JSX looks a lot like HTML, but it is a bit stricter and can display dynamic information.</p>
         <p>If we paste existing HTML markup into a React component, it won’t always work:</p>
-        <pre>
-      <code>
-        export default function TodoList() {
-          return (
-            // This doesn't quite work!
-            &lt;h1>Hedy Lamarr's Todos&lt;/h1>
-            &lt;img
-              src="https://i.imgur.com/yXOvdOSs.jpg"
-              alt="Hedy Lamarr"
-              class="photo"
-            >
-            &lt;ul>
-              &lt;li>Invent new traffic lights
-              &lt;li>Rehearse a movie scene
-              &lt;li>Improve spectrum technology
-            &lt;/ul>
-          );
-        }
+        <div class="fit-text-width">
+          <button type="button" title="Copy to Clipboard" class="button-clip-board" data-copy=".sc-3-cd-1" aria-label="Copy to Clipboard">
+            <ion-icon name="copy-outline"></ion-icon>
+          </button>
+          <pre class="sc-3-cd-1">
+            <code>
+export default function TodoList() {
+return (
+  // This doesn't quite work!
+  &lt;h1>Hedy Lamarr's Todos&lt;/h1>
+  &lt;img
+    src="https://i.imgur.com/yXOvdOSs.jpg"
+    alt="Hedy Lamarr"
+    class="photo"
+  >
+  &lt;ul>
+    &lt;li>Invent new traffic lights
+    &lt;li>Rehearse a movie scene
+    &lt;li>Improve spectrum technology
+  &lt;/ul>
+);
+}
       </code>
     </pre>
+          </div>
         <p>If you have existing HTML like this, you can fix it using a converter:</p>
-        <pre>
-      <code>
-        export default function TodoList() {
-          return (
-            <>
-            &lt;h1>Hedy Lamarr's Todos&lt;/h1>
-            &lt;img
-              src="https://i.imgur.com/yXOvdOSs.jpg"
-              alt="Hedy Lamarr"
-              className="photo"
-            />
-            &lt;ul>
-              &lt;li>Invent new traffic lights&lt;/li>
-              &lt;li>Rehearse a movie scene&lt;/li>
-              &lt;li>Improve spectrum technology&lt;/li>
-            &lt;/ul>
-          &lt;/>
-          );
-        }
-      </code>
-    </pre>
+        <div class="fit-text-width">
+          <button type="button" title="Copy to Clipboard" class="button-clip-board" data-copy=".sc-3-cd-2" aria-label="Copy to Clipboard">
+            <ion-icon name="copy-outline"></ion-icon>
+          </button>
+          <pre class="sc-3-cd-2">
+            <code>
+export default function TodoList() {
+  return (
+    <>
+    &lt;h1>Hedy Lamarr's Todos&lt;/h1>
+    &lt;img
+      src="https://i.imgur.com/yXOvdOSs.jpg"
+      alt="Hedy Lamarr"
+      className="photo"
+    />
+    &lt;ul>
+      &lt;li>Invent new traffic lights&lt;/li>
+      &lt;li>Rehearse a movie scene&lt;/li>
+      &lt;li>Improve spectrum technology&lt;/li>
+    &lt;/ul>
+  &lt;/>
+  );
+}
+            </code>
+          </pre>
+        </div>
       </section>
 
       <section class="main-section" id="JavaScript_in_JSX_with_curly_braces">
@@ -141,36 +163,40 @@ export default function Gallery() {
           <h2>JavaScript in JSX with curly braces</h2>
         </header>
         <p>JSX lets you write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place. Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside that markup. In this situation, you can use curly braces in your JSX to “open a window” to JavaScript:</p>
-        <pre>
-      <code>
-        const person = {
-          name: 'Gregorio Y. Zara',
-          theme: {
-            backgroundColor: 'black',
-            color: 'pink'
-          }
-        };
+        <div class="fit-text-width">
+          <button type="button" title="Copy to Clipboard" class="button-clip-board" data-copy=".sc-4-cd-1" aria-label="Copy to Clipboard">
+            <ion-icon name="copy-outline"></ion-icon>
+          </button>
+          <pre class="sc-4-cd-1">
+            <code>
+const person = {
+  name: 'Gregorio Y. Zara',
+  theme: {
+    backgroundColor: 'black',
+    color: 'pink'
+  }
+};
 
-        export default function TodoList() {
-          return (
-            &lt;div style={person.theme}>
-              &lt;h1>{person.name}'s Todos&lt;/h1>
-              &lt;img
-                className="avatar"
-                src="https://i.imgur.com/7vQD0fPs.jpg"
-                alt="Gregorio Y. Zara"
-              />
-              &lt;ul>
-                &lt;li>Improve the videophone&lt;/li>
-                &lt;li>Prepare aeronautics lectures&lt;/li>
-                &lt;li>Work on the alcohol-fuelled engine&lt;/li>
-              &lt;/ul>
-            &lt;/div>
-          );
-        }
-
-      </code>
-    </pre>
+export default function TodoList() {
+  return (
+    &lt;div style={person.theme}>
+      &lt;h1>{person.name}'s Todos&lt;/h1>
+      &lt;img
+        className="avatar"
+        src="https://i.imgur.com/7vQD0fPs.jpg"
+        alt="Gregorio Y. Zara"
+      />
+      &lt;ul>
+        &lt;li>Improve the videophone&lt;/li>
+        &lt;li>Prepare aeronautics lectures&lt;/li>
+        &lt;li>Work on the alcohol-fuelled engine&lt;/li>
+      &lt;/ul>
+    &lt;/div>
+  );
+}
+            </code>
+          </pre>
+        </div>
       </section>
 
       <section class="main-section" id="Passing_props_to_a_component">
@@ -178,43 +204,47 @@ export default function Gallery() {
           <h2>Passing props to a component</h2>
         </header>
         <p>React components use props to communicate with each other. Every parent component can pass some information to its child components by giving them props. Props might remind you of HTML attributes, but you can pass any JavaScript value through them, including objects, arrays, functions, and even JSX!</p>
-        <pre>
+        <div class="fit-text-width">
+          <button type="button" title="Copy to Clipboard" class="button-clip-board" data-copy=".sc-5-cd-1" aria-label="Copy to Clipboard">
+            <ion-icon name="copy-outline"></ion-icon>
+          </button>
+        <pre class="sc-5-cd-1">
       <code>
-        import { getImageUrl } from './utils.js'
+import { getImageUrl } from './utils.js'
 
-        export default function Profile() {
-          return (
-            &lt;Card>
-              &lt;Avatar
-                size={100}
-                person={{
-                name: 'Katsuko Saruhashi',
-                  imageId: 'YfeOqp2'
-                }}
-              />
-            &lt;/Card>
-          );
-        }
+export default function Profile() {
+  return (
+    &lt;Card>
+      &lt;Avatar
+        size={100}
+        person={{
+        name: 'Katsuko Saruhashi',
+          imageId: 'YfeOqp2'
+        }}
+      />
+    &lt;/Card>
+  );
+}
 
-        function Avatar({ person, size }) {
-          return (
-            &lt;img
-              className="avatar"
-              src={getImageUrl(person)}
-              alt={person.name}
-              width={size}
-              height={size}
-            />
-          );
-        }
+function Avatar({ person, size }) {
+  return (
+    &lt;img
+      className="avatar"
+      src={getImageUrl(person)}
+      alt={person.name}
+      width={size}
+      height={size}
+    />
+  );
+}
 
-        function Card({ children }) {
-          return (
-            &lt;div className="card">
-              {children}
-            &lt;/div>
-          );
-        }
+function Card({ children }) {
+  return (
+    &lt;div className="card">
+      {children}
+    &lt;/div>
+  );
+}
       </code>
       <code>
         export function getImageUrl(person, size = 's') {
@@ -227,6 +257,7 @@ export default function Gallery() {
         }
       </code>
     </pre>
+        </div>
       </section>
 
       <section class="main-section" id="Conditional_rendering">
@@ -235,39 +266,44 @@ export default function Gallery() {
         </header>
         <p>Your components will often need to display different things depending on different conditions. In React, you can conditionally render JSX using JavaScript syntax like <code>if</code> statements, <code>&&</code>, and <code>? :</code> operators.</p>
         <p>In this example, the JavaScript <code>&&</code> operator is used to conditionally render a checkmark:</p>
-        <pre>
+        <div class="fit-text-width">
+          <button type="button" title="Copy to Clipboard" class="button-clip-board" data-copy=".sc-6-cd-1" aria-label="Copy to Clipboard">
+            <ion-icon name="copy-outline"></ion-icon>
+          </button>
+        <pre class="sc-6-cd-1">
       <code>
-        function Item({ name, isPacked }) {
-          return (
-            &lt;li className="item">
-              {name} {isPacked && '✅'}
-            &lt;/li>
-          );
-        }
+function Item({ name, isPacked }) {
+  return (
+    &lt;li className="item">
+      {name} {isPacked && '✅'}
+    &lt;/li>
+  );
+}
 
-        export default function PackingList() {
-          return (
-            &lt;section>
-              &lt;h1>Sally Ride's Packing List&lt;/h1>
-              &lt;ul>
-                &lt;Item
-                  isPacked={true}
-                  name="Space suit"
-                />
-                &lt;Item
-                  isPacked={true}
-                  name="Helmet with a golden leaf"
-                />
-                &lt;Item
-                  isPacked={false}
-                  name="Photo of Tam"
-                />
-              &lt;/ul>
-            &lt;/section>
-          );
-        }
+export default function PackingList() {
+  return (
+    &lt;section>
+      &lt;h1>Sally Ride's Packing List&lt;/h1>
+      &lt;ul>
+        &lt;Item
+          isPacked={true}
+          name="Space suit"
+        />
+        &lt;Item
+          isPacked={true}
+          name="Helmet with a golden leaf"
+        />
+        &lt;Item
+          isPacked={false}
+          name="Photo of Tam"
+        />
+      &lt;/ul>
+    &lt;/section>
+  );
+}
       </code>
     </pre>
+        </div>
       </section>
 
       <section class="main-section" id="Rendering_lists">
@@ -276,76 +312,81 @@ export default function Gallery() {
         </header>
         <p>You will often want to display multiple similar components from a collection of data. You can use JavaScript’s <code>filter()</code> and <code>map()</code> with React to filter and transform your array of data into an array of components.</p>
         <p>For each array item, you will need to specify a <code>key</code>. Usually, you will want to use an ID from the database as a <code>key</code>. Keys let React keep track of each item’s place in the list even if the list changes.</p>
-        <pre>
+        <div class="fit-text-width">
+          <button type="button" title="Copy to Clipboard" class="button-clip-board" data-copy=".sc-7-cd-1" aria-label="Copy to Clipboard">
+            <ion-icon name="copy-outline"></ion-icon>
+          </button>
+        <pre class="sc-7-cd-1">
       <code>
-        import { people } from './data.js';
-        import { getImageUrl } from './utils.js';
+import { people } from './data.js';
+import { getImageUrl } from './utils.js';
 
-        export default function List() {
-          const listItems = people.map(person =>
-            &lt;li key={person.id}>
-              &lt;img
-                src={getImageUrl(person)}
-                alt={person.name}
-              />
-              &lt;p>
-                &lt;b>{person.name}:&lt;/b>
-                {' ' + person.profession + ' '}
-                known for {person.accomplishment}
-              &lt;/p>
-            &lt;/li>
-          );
-          return (
-            &lt;article>
-              &lt;h1>Scientists&lt;/h1>
-              &lt;ul>{listItems}&lt;/ul>
-            &lt;/article>
-          );
-        }
+export default function List() {
+  const listItems = people.map(person =>
+    &lt;li key={person.id}>
+      &lt;img
+        src={getImageUrl(person)}
+        alt={person.name}
+      />
+      &lt;p>
+        &lt;b>{person.name}:&lt;/b>
+        {' ' + person.profession + ' '}
+        known for {person.accomplishment}
+      &lt;/p>
+    &lt;/li>
+  );
+  return (
+    &lt;article>
+      &lt;h1>Scientists&lt;/h1>
+      &lt;ul>{listItems}&lt;/ul>
+    &lt;/article>
+  );
+}
       </code>
       <code>
-        export const people = [{
-        id: 0,
-        name: 'Creola Katherine Johnson',
-        profession: 'mathematician',
-        accomplishment: 'spaceflight calculations',
-        imageId: 'MK3eW3A'
-      }, {
-        id: 1,
-        name: 'Mario José Molina-Pasquel Henríquez',
-        profession: 'chemist',
-        accomplishment: 'discovery of Arctic ozone hole',
-        imageId: 'mynHUSa'
-      }, {
-        id: 2,
-        name: 'Mohammad Abdus Salam',
-        profession: 'physicist',
-        accomplishment: 'electromagnetism theory',
-        imageId: 'bE7W1ji'
-      }, {
-        id: 3,
-        name: 'Percy Lavon Julian',
-        profession: 'chemist',
-        accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
-        imageId: 'IOjWm71'
-      }, {
-        id: 4,
-        name: 'Subrahmanyan Chandrasekhar',
-        profession: 'astrophysicist',
-        accomplishment: 'white dwarf star mass calculations',
-        imageId: 'lrWQx8l'
-      }];
+  export const people = [{
+  id: 0,
+  name: 'Creola Katherine Johnson',
+  profession: 'mathematician',
+  accomplishment: 'spaceflight calculations',
+  imageId: 'MK3eW3A'
+}, {
+  id: 1,
+  name: 'Mario José Molina-Pasquel Henríquez',
+  profession: 'chemist',
+  accomplishment: 'discovery of Arctic ozone hole',
+  imageId: 'mynHUSa'
+}, {
+  id: 2,
+  name: 'Mohammad Abdus Salam',
+  profession: 'physicist',
+  accomplishment: 'electromagnetism theory',
+  imageId: 'bE7W1ji'
+}, {
+  id: 3,
+  name: 'Percy Lavon Julian',
+  profession: 'chemist',
+  accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
+  imageId: 'IOjWm71'
+}, {
+  id: 4,
+  name: 'Subrahmanyan Chandrasekhar',
+  profession: 'astrophysicist',
+  accomplishment: 'white dwarf star mass calculations',
+  imageId: 'lrWQx8l'
+}];
       </code>
       <code>
-        export function getImageUrl(person) {
-        return (
-          'https://i.imgur.com/' +
-          person.imageId +
-          's.jpg'
-        );
-      }
+  export function getImageUrl(person) {
+  return (
+    'https://i.imgur.com/' +
+    person.imageId +
+    's.jpg'
+  );
+}
       </code>
     </pre>
+        </div>
       </section>
 
       <section class="main-section" id="Keeping_components_pure">
@@ -360,44 +401,54 @@ export default function Gallery() {
         </ul>
         </p>
         <p>By strictly only writing your components as pure functions, you can avoid an entire class of baffling bugs and unpredictable behavior as your codebase grows. Here is an example of an impure component:</p>
-        <pre>
+        <div class="fit-text-width">
+          <button type="button" title="Copy to Clipboard" class="button-clip-board" data-copy=".sc-8-cd-1" aria-label="Copy to Clipboard">
+            <ion-icon name="copy-outline"></ion-icon>
+          </button>
+        <pre class="sc-8-cd-1">
       <code>
-        let guest = 0;
+let guest = 0;
 
-        function Cup() {
-          // Bad: changing a preexisting variable!
-          guest = guest + 1;
-          return &lt;h2>Tea cup for guest #{guest}&lt;/h2>;
-        }
+function Cup() {
+  // Bad: changing a preexisting variable!
+  guest = guest + 1;
+  return &lt;h2>Tea cup for guest #{guest}&lt;/h2>;
+}
 
-        export default function TeaSet() {
-          return (
-            <>
-              &lt;Cup />
-              &lt;Cup />
-              &lt;Cup />
-            &lt;/>
-          );
+export default function TeaSet() {
+  return (
+    <>
+      &lt;Cup />
+      &lt;Cup />
+      &lt;Cup />
+    &lt;/>
+  );
       </code>
     </pre>
+        </div>
         <p>You can make this component pure by passing a prop instead of modifying a preexisting variable:</p>
-        <pre>
+        <div class="fit-text-width">
+          <button type="button" title="Copy to Clipboard" class="button-clip-board" data-copy=".sc-8-cd-2" aria-label="Copy to Clipboard">
+            <ion-icon name="copy-outline"></ion-icon>
+          </button>
+        <pre class="sc-8-cd-2">
       <code>
-        function Cup({ guest }) {
-        return &lt;h2>Tea cup for guest #{guest}&lt;/h2>;
-      }
+  function Cup({ guest }) {
+  return &lt;h2>Tea cup for guest #{guest}&lt;/h2>;
+}
 
-      export default function TeaSet() {
-        return (
-          <>
-            &lt;Cup guest={1} />
-            &lt;Cup guest={2} />
-            &lt;Cup guest={3} />
-          &lt;/>
-        );
-      }
+export default function TeaSet() {
+  return (
+    <>
+      &lt;Cup guest={1} />
+      &lt;Cup guest={2} />
+      &lt;Cup guest={3} />
+    &lt;/>
+  );
+}
       </code>
     </pre>
+        </div>
       </section>
 
       <section class="main-section" id="Your_UI_as_a_tree">
@@ -425,6 +476,8 @@ export default function Gallery() {
     </main>
   </div>
 </div>
-
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="./js/copy-button.js"></script>
 </body>
 </html>
