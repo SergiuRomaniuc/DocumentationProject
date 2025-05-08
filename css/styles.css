@@ -77,7 +77,8 @@ p:not(.description-paragraph) {
 pre {
   margin: 0;
   padding: 6px 10px;
-  background-color: #24282a;
+  /*background-color: #24282a;*/
+  background-color: #282b2e;
   border: 1px solid #000;
   box-sizing: border-box;
 }
